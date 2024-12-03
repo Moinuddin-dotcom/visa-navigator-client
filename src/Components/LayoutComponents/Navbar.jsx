@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../Provider/AuthProvider'
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
 
-    const pictureNavigation = <>
 
-        <li><a>Profile</a></li>
-        <li><a>Logout</a></li>
-    </>
-    const loginRegister = <>
-        <button className="btn btn-warning">
-            <Link to={"/login"} >Log In</Link>
-            <Link to={"/register"} >Register</Link>
-        </button>
-    </>
+
+    // const pictureNavigation = <>
+    //     <li><a>Profile</a></li>
+    //     <li><a>Logout</a></li>
+    // </>
+    // const loginRegister = <>
+    //     <div>
+    //         <button className="btn btn-warning">
+    //             <Link to={"/login"} >Log In</Link>
+    //         </button>
+    //         <button className="btn btn-warning">
+    //             <Link to={"/register"} >Register</Link>
+    //         </button>
+    //     </div>
+    // </>
 
     const navbarNavigation = <>
         <li><Link to={"/"} >Home</Link></li>
@@ -64,21 +71,39 @@ const Navbar = () => {
 
                     <div className="navbar-end">
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img
-                                        alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                </div>
-                            </div>
+                            {
+                                user ?
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img
+                                                className='w-10'
+                                                alt="User Image"
+                                                src={user?.photoURL} />
+                                        </div>
+                                    </div>
+                                    :
+                                    <div className='space-x-4'>
+                                        <button className="btn btn-warning">
+                                            <Link to={"/login"} >Log In</Link>
+                                        </button>
+                                        <button className="btn btn-warning">
+                                            <Link to={"/register"} >Register</Link>
+                                        </button>
+                                    </div>
+                            }
                             {/* <div className=''> */}
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                {pictureNavigation}
+                                {
+                                    user &&
+                                    <div>
+                                        <li><a>Profile</a></li>
+                                        <li><button onClick={logOut}>Logout</button></li>
+                                    </div>
+                                }
                             </ul>
-                            {loginRegister}
-                            {/* </div> */}
+
                         </div>
                     </div>
                 </div>
