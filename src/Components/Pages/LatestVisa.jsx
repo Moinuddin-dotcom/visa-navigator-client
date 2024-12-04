@@ -22,15 +22,15 @@ const LatestVisa = ({ countryCard }) => {
         <div>
 
             <div className="card">
-                <div className="card bg-base-100 shadow-xl">
-                    <figure className="px-5 pt-10">
+                <div className="card bg-base-100 shadow-xl border-2">
+                    <figure className="p-2 ">
                         <img
                             src={countryImage}
                             alt="countryImage"
                             className="rounded-xl w-full h-[350px]" />
                     </figure>
                     <div className="card-body items-start text-center text-gray-500">
-                        <h2 className="card-title text-black"> CountryName:  {countryName} </h2>
+                        <h2 className="card-title text-black">{countryName} </h2>
                         <p> Visa Type:  {visaType} </p>
                         <p> Processing Time:  {processingTime} </p>
                         <p> Fee:  {fee} </p>
@@ -42,6 +42,7 @@ const LatestVisa = ({ countryCard }) => {
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }

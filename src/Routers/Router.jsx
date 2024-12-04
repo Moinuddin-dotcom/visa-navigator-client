@@ -19,7 +19,7 @@ const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Hero />,
-                loader: () => fetch("http://localhost:8000/visa?limit=6")
+                loader: () => fetch("http://localhost:8000/visa")
                 // .then((res) => res.json())
                 // .then((data) => console.log(data))
             },
@@ -32,11 +32,12 @@ const Router = createBrowserRouter([
     {
         path: "/visadetails/:id",
         element: <VisaDetails />,
-        loader: ({ params }) => fetch(`http://localhost:8000/visa${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:8000/visa/${params.id}`)
     },
     {
         path: "/allvisa",
-        element: <AllVisa />
+        element: <AllVisa />,
+        loader: () => fetch("http://localhost:8000/visa")
     },
     {
         path: "/addvisa",
