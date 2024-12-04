@@ -1,10 +1,25 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
-  const { setUser, newUser } = useContext(AuthContext)
+  const { setUser, newUser, updateUserProfile, handleGoolgeLogIn } = useContext(AuthContext)
+  const [error, setError] = useState({})
+  const navigate = useNavigate()
+
+  const handleGoolge = () => {
+    handleGoolgeLogIn()
+      .then((result) => {
+        setUser(result.user)
+        navigate("/")
+      })
+      .catch((error) => {
+        console.log("ERROR", error)
+        setUser(null);
+      })
+  }
+
 
 
 
@@ -22,33 +37,35 @@ const Register = () => {
     const email = form.email.value
     const password = form.password.value
 
+    if (password.length < 6) {
+      setError({ ...error, password: "Password should be at least 6 characters or long." })
+      toast.error('Use meaningful password')
+      return
+    }
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setError(toast.error('Use a special password'));
+      return
+    }
+
     const reg = { name, photo, email, password }
     console.log(reg)
-    // if (password.length < 6) {
-    //   setError({ ...error, password: "Password should be at least 6 characters or long." })
-    //   toast.error('Use meaningful password')
-    //   return
-    // }
-    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
-    // if (!passwordRegex.test(password)) {
-    //   setError(toast.error('Use a special password'));
-    //   return
-    // }
-
 
     newUser(email, password)
       .then(result => {
-        const user = result
+        const user = result.user
         toast.success('User registered successfully')
         console.log('User registered successfully', user)
+        updateUserProfile({ displayName: name, photoURL: photo })
+          .then(() => {
+            navigate("/login")
+            // setUser({ ...user, displayName: name, photoURL: photo })
+            // console.log("Ok")
+          })
+          .catch(err => {
+            console.log(err.message)
+          })
         setUser(user)
-        // updateUserProfile({ displayName: name, photoURL: photo })
-        // .then(() => {
-        //   navigate("/login")
-        // })
-        // .catch(err => {
-        //   console.log(err.message)
-        // })
       })
       .catch(error => {
         console.log("Error creating user", error.message)
@@ -103,10 +120,10 @@ const Register = () => {
                 }
               </button> */}
             </div>
-            {/* {
+            {
               error.password &&
               <p className="text-red-500 text-xs">{error.password}</p>
-            } */}
+            }
             <div className="form-control mt-6">
               <button className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">Register</button>
             </div>
@@ -127,7 +144,7 @@ const Register = () => {
           <div className="card-body flex justify-center items-center">
             <h2 className=" text-center text-2xl font-bold">Social</h2>
             <button
-              // onClick={handleGoolge}
+              onClick={handleGoolge}
               className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">Log in with google</button>
 
           </div>

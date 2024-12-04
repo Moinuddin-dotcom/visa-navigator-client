@@ -5,8 +5,23 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const Login = () => {
-  const { setUser, userlogIn } = useContext(AuthContext)
+  const { setUser, userlogIn, handleGoolgeLogIn } = useContext(AuthContext)
   const navigate = useNavigate()
+
+  const handleGoolge = () => {
+    handleGoolgeLogIn()
+      .then((result) => {
+        setUser(result.user)
+        navigate("/")
+      })
+      .catch((error) => {
+        console.log("ERROR", error)
+        setUser(null);
+      })
+  }
+
+
+
 
   const handleLogin = (e) => {
 
@@ -92,7 +107,7 @@ const Login = () => {
           <div className="card-body flex justify-center items-center">
             <h2 className=" text-center text-2xl font-bold">Social</h2>
             <button
-              // onClick={handleGoolge}
+              onClick={handleGoolge}
               className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">Log in with google</button>
 
           </div>

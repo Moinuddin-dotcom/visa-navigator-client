@@ -4,6 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
+    // console.log(user)
 
 
 
@@ -73,12 +74,14 @@ const Navbar = () => {
                         <div className="dropdown dropdown-end">
                             {
                                 user ?
+                                    // <div>{user.email}</div>
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
                                             <img
-                                                className='w-10'
+                                                // className='w-10'
+                                                src={user.photoURL || "https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"}
                                                 alt="User Image"
-                                                src={user?.photoURL} />
+                                            />
                                         </div>
                                     </div>
                                     :
@@ -98,7 +101,8 @@ const Navbar = () => {
                                 {
                                     user &&
                                     <div>
-                                        <li><a>Profile</a></li>
+                                        <li><a>{user && user?.displayName}</a></li>
+                                        {/* <li><Link>MoinUddin</Link></li> */}
                                         <li><button onClick={logOut}>Logout</button></li>
                                     </div>
                                 }
