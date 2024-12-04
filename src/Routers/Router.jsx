@@ -6,12 +6,33 @@ import MyAddedVisa from "../Components/LayoutComponents/MyAddedVisa";
 import VisaApplication from "../Components/LayoutComponents/VisaApplication";
 import Login from "../Components/LayoutComponents/LogInAndRegister/Login";
 import Register from "../Components/LayoutComponents/LogInAndRegister/Register";
+import Hero from "../Components/Pages/Hero";
+import LatestVisa from "../Components/Pages/LatestVisa";
+import VisaDetails from "../Components/Pages/VisaDetails";
 
 
 const Router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />
+        element: <Home />,
+        children: [
+            {
+                path: "/",
+                element: <Hero />,
+                loader: () => fetch("http://localhost:8000/visa?limit=6")
+                // .then((res) => res.json())
+                // .then((data) => console.log(data))
+            },
+            // {
+            //     path: "/",
+            //     element: <LatestVisa />
+            // }
+        ]
+    },
+    {
+        path: "/visadetails/:id",
+        element: <VisaDetails />,
+        loader: ({ params }) => fetch(`http://localhost:8000/visa${params.id}`)
     },
     {
         path: "/allvisa",
@@ -37,6 +58,8 @@ const Router = createBrowserRouter([
         path: "/register",
         element: <Register />
     },
+
+
 
 ])
 

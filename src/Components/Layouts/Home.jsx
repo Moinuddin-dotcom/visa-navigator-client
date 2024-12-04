@@ -12,7 +12,7 @@ const Home = () => {
             <main>
                 <h1>Banner section</h1>
                 {/* Pending */}
-                {/* <Outlet /> */}
+                <Outlet />
             </main>
             <footer>
                 <Footer />
