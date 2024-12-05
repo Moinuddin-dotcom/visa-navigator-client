@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../Provider/AuthProvider';
 
@@ -7,12 +7,13 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const Login = () => {
   const { setUser, userlogIn, handleGoolgeLogIn } = useContext(AuthContext)
   const navigate = useNavigate()
+  const location = useLocation()
 
   const handleGoolge = () => {
     handleGoolgeLogIn()
       .then((result) => {
         setUser(result.user)
-        navigate("/")
+        navigate(location?.state ? location.state : "/")
       })
       .catch((error) => {
         console.log("ERROR", error)

@@ -9,12 +9,15 @@ import Register from "../Components/LayoutComponents/LogInAndRegister/Register";
 import Hero from "../Components/Pages/Hero";
 import LatestVisa from "../Components/Pages/LatestVisa";
 import VisaDetails from "../Components/Pages/VisaDetails";
+import PrivateRouter from "./PrivateRouter";
+import Error from "../Components/Layouts/Error";
 
 
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <Home />,
+        errorElement: <Error />,
         children: [
             {
                 path: "/",
@@ -31,7 +34,10 @@ const Router = createBrowserRouter([
     },
     {
         path: "/visadetails/:id",
-        element: <VisaDetails />,
+        element:
+            <PrivateRouter>
+                <VisaDetails />,
+            </PrivateRouter>,
         loader: ({ params }) => fetch(`http://localhost:8000/visa/${params.id}`)
     },
     {
@@ -41,15 +47,24 @@ const Router = createBrowserRouter([
     },
     {
         path: "/addvisa",
-        element: <AddVisa />
+        element:
+            <PrivateRouter>
+                <AddVisa />
+            </PrivateRouter>
     },
     {
         path: "/myaddedvisa",
-        element: <MyAddedVisa />
+        element:
+            <PrivateRouter>
+                <MyAddedVisa />
+            </PrivateRouter>
     },
     {
         path: "/visaApplication",
-        element: <VisaApplication />,
+        element:
+            <PrivateRouter>
+                <VisaApplication />,
+            </PrivateRouter>,
         // loader: () => ({ params }) => fetch(`http://localhost:8000/visa/${params.id}`),
         loader: () => fetch("http://localhost:8000/application")
     },
