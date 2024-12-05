@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-const Modal = () => {
+const Modal = ({ idData }) => {
     // const [formData, setFormData] = useState({
     //     email: "", // Replace with the logged-in user's email
     //     firstName: "",
@@ -15,7 +15,7 @@ const Modal = () => {
     //     setFormData({ ...formData, [name]: value });
     // };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Form submitted");
         const form = e.target
@@ -25,23 +25,31 @@ const Modal = () => {
         const appliedDate = form.appliedDate.value
         const fee = form.fee.value
         const name = firstName + " " + lastName
+
+
         const application = {
             name,
             email,
             firstName,
             lastName,
             appliedDate,
-            fee
+            fee,
+            idData
         }
         console.log(application)
 
+        const res = await fetch("http://localhost:8000/application", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(application)
+        })
+        const data = await res.json()
+        console.log(data)
+
+
     };
-
-
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    // }
 
 
 
@@ -105,6 +113,7 @@ const Modal = () => {
                                 <input
                                     type="number"
                                     name="fee"
+                                    // defaultValue={fee}
                                     // value={formData.fee}
                                     // onChange={handleChange}
                                     placeholder="Enter visa fee"
@@ -123,7 +132,7 @@ const Modal = () => {
                         </form>
                     </div>
                     {/* form end */}
-                    <div className="modal-action">
+                    <div className="text-center my-5">
                         <form method="dialog">
                             {/* if there is a button, it will close the modal */}
                             <button className="btn">Close</button>

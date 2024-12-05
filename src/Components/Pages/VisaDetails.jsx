@@ -63,7 +63,7 @@ const VisaDetails = () => {
             </main>
 
             <section className="modal">
-                <Modal />
+                <Modal idData={idData} />
             </section>
 
             <footer>
