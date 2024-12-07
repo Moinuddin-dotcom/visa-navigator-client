@@ -13,7 +13,7 @@ const AllVisa = () => {
                 <Navbar />
             </nav>
             <main>
-                <h1>Here is All Visa </h1>
+                <h1 className='font-bold text-4xl text-center py-10'>Here is All Visa </h1>
                 <section className='max-w-[90vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                     {
                         countryData.map((countryCard) =>
