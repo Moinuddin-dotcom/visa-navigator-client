@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Modal = ({ idData }) => {
     // const [formData, setFormData] = useState({
@@ -47,6 +49,16 @@ const Modal = ({ idData }) => {
         })
         const data = await res.json()
         console.log(data)
+        if (data.insertedId) {
+            Swal.fire({
+                title: 'success!',
+                text: 'Visa added successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            })
+            form.reset();
+            // toast.success("Visa added successfully")
+        }
 
 
     };
@@ -56,6 +68,7 @@ const Modal = ({ idData }) => {
 
     return (
         <div>
+            <Toaster />
             <dialog id="my_modal_4" className="modal">
                 <div className="modal-box w-11/12 max-w-5xl">
                     {/* form start */}

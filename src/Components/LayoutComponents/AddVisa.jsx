@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import { AuthContext } from '../Provider/AuthProvider'
+import Swal from 'sweetalert2'
 
 const AddVisa = () => {
 
@@ -50,11 +51,20 @@ const AddVisa = () => {
             })
         const data = await res.json()
         console.log(data)
+        if (data.insertedId) {
+            Swal.fire({
+                title: 'success!',
+                text: 'Visa added successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            })
+            form.reset();
+            // toast.success("Visa added successfully")
+        }
 
 
 
-
-
+        // e.resete()
 
     }
 

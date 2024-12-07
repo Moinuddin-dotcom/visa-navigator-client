@@ -57,14 +57,7 @@ const Register = () => {
         })
         const data = await res.json();
         console.log(data)
-        if (data.insertedId) {
-          Swal.fire({
-            title: 'success!',
-            text: 'Visa added successfully',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-          })
-        }
+       
 
 
 
