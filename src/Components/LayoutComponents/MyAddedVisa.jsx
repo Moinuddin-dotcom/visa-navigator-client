@@ -2,41 +2,75 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
-// import { useAuthState } from 'react-firebase-hooks/auth';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+import MyAddedVisaModal from '../Pages/MyAddedVisaModal';
 
 
 
 const MyAddedVisa = () => {
-    // const myAddedVisaData = useLoaderData()
     const { user } = useContext(AuthContext)
     const [loginuserVisa, setLoginuserVisa] = useState([])
-    const [loading, setLoading] = useState(true);
+    const [updateSelectedVisa, setUpdateSelectedVisa] = useState(null)
 
     useEffect(() => {
         if (user?.email) {
-            // const res = await fetch(`http://localhost:8000/visa?email${user.email}`)
-            // const data = await res.json()
-            // console.log(data)
-            // fetch(`http://localhost:8000/visa?email${user.email}`)
             fetch(`http://localhost:8000/visa?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setLoginuserVisa(data);
-                    // console.log(data);
-                    // setLoading(false);
                 })
         }
     }, [user])
 
+    const handleDelete = (id) => {
+        // console.log("Lets delete card", id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
 
 
+                const res = await fetch(`http://localhost:8000/visa/${id}`, {
+                    method: 'DELETE',
+                })
+                const data = await res.json()
+                console.log("Delete is done", data)
+                if (data.deletedCount > 0) {
+                    const remaining = loginuserVisa.filter(remain => remain._id !== id)
+                    setLoginuserVisa(remaining)
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+
+                }
+
+            }
+        })
+    }
 
 
+    const handleUpdateClick = (visa) => {
+        setUpdateSelectedVisa(visa);
+        document.getElementById('my_modal_1').showModal();
+    };
 
-
-
+    const refreshVisas = () => {
+        fetch(`http://localhost:8000/visa?email=${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setLoginuserVisa(data);
+            })
+    }
 
 
     return (
@@ -44,24 +78,43 @@ const MyAddedVisa = () => {
             <nav>
                 <Navbar />
             </nav>
-            <main>
-                <h2>My Added Visas</h2>
+            <h2 className='font-bold text-4xl text-center py-10'>My Added Visas</h2>
+            <main className='max-w-[80vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10'>
 
                 {loginuserVisa.map((visa) => (
-                    <div key={visa._id} className="visa-card">
-                        <img src={visa.countryImage} alt={visa.country} />
-                        <h3>{visa.country}</h3>
-                        <p>Visa Type: {visa.visa_type}</p>
-                        <p>Processing Time: {visa.processing_time}</p>
-                        <p>Fee: {visa.fee}</p>
-                        <p>Validity: {visa.validity}</p>
-                        <p>Application Method: {visa.application_method}</p>
-                        {/* <button onClick={() => setSelectedVisa(visa)}>Update</button>
-                        <button onClick={() => handleDelete(visa._id)}>Delete</button> */}
+                    <div key={visa._id} className="card bg-base-100 shadow-purple-600 shadow-2xl border">
+                        <div className="card-body">
+                            <h2 className="card-title">{visa.countryName}</h2>
+                            <p>Visa Type: {visa.visaType}</p>
+                            <p>Processing Time: {visa.processingTime}</p>
+                            <p>Fee: {visa.fee}</p>
+                            <p>Validity: {visa.validity}</p>
+                            <p>Application Method: {visa.applicationMethod}</p>
+                            <div className="flex justify-around">
+                                <button
+                                    onClick={() => handleUpdateClick(visa)}
+                                    className="btn btn-sm">Update</button>
+                                <button
+                                    onClick={() => handleDelete(visa._id)}
+                                    className="btn btn-sm">Delete</button>
+                            </div>
+                        </div>
+                        <figure>
+                            <img
+                                className='w-full h-[200px]'
+                                src={visa.countryImage}
+                                alt="Country image" />
+                        </figure>
                     </div>
                 ))}
 
             </main>
+            <section>
+                <MyAddedVisaModal
+                    updateSelectedVisa={updateSelectedVisa}
+                    setUpdateSelectedVisa={setUpdateSelectedVisa}
+                    refreshVisas={() => refreshVisas()} />
+            </section>
             <footer>
                 <Footer />
             </footer>

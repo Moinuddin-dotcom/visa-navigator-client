@@ -7,7 +7,6 @@ import VisaApplication from "../Components/LayoutComponents/VisaApplication";
 import Login from "../Components/LayoutComponents/LogInAndRegister/Login";
 import Register from "../Components/LayoutComponents/LogInAndRegister/Register";
 import Hero from "../Components/Pages/Hero";
-import LatestVisa from "../Components/Pages/LatestVisa";
 import VisaDetails from "../Components/Pages/VisaDetails";
 import PrivateRouter from "./PrivateRouter";
 import Error from "../Components/Layouts/Error";

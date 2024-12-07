@@ -4,19 +4,6 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Modal = ({ idData }) => {
-    // const [formData, setFormData] = useState({
-    //     email: "", // Replace with the logged-in user's email
-    //     firstName: "",
-    //     lastName: "",
-    //     appliedDate: new Date().toISOString().split("T")[0], // Current date in YYYY-MM-DD
-    //     fee: "",
-    // });
-
-    // const handleChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setFormData({ ...formData, [name]: value });
-    // };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Form submitted");
