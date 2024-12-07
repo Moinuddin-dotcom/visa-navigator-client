@@ -23,13 +23,7 @@ const Router = createBrowserRouter([
                 path: "/",
                 element: <Hero />,
                 loader: () => fetch("http://localhost:8000/visa")
-                // .then((res) => res.json())
-                // .then((data) => console.log(data))
             },
-            // {
-            //     path: "/",
-            //     element: <LatestVisa />
-            // }
         ]
     },
     {
@@ -57,7 +51,7 @@ const Router = createBrowserRouter([
         element:
             <PrivateRouter>
                 <MyAddedVisa />
-            </PrivateRouter>
+            </PrivateRouter>,
     },
     {
         path: "/visaApplication",
@@ -65,7 +59,6 @@ const Router = createBrowserRouter([
             <PrivateRouter>
                 <VisaApplication />,
             </PrivateRouter>,
-        // loader: () => ({ params }) => fetch(`http://localhost:8000/visa/${params.id}`),
         loader: () => fetch("http://localhost:8000/application")
     },
     {

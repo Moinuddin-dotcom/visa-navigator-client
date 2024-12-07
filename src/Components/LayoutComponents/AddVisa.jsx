@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Footer from './Footer'
 import Navbar from './Navbar'
+import { AuthContext } from '../Provider/AuthProvider'
 
 const AddVisa = () => {
+
+    const { user } = useContext(AuthContext)
+    console.log(user)
 
     const handleAddVisa = async (e) => {
         e.preventDefault();
@@ -30,17 +34,20 @@ const AddVisa = () => {
             ageRestriction,
             fee,
             validity,
-            applicationMethod
+            applicationMethod,
+            email: user?.email
         }
         console.log(mainForm)
 
-        const res = await fetch("http://localhost:8000/visa", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(mainForm)
-        })
+
+        const res = await fetch("http://localhost:8000/visa",
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(mainForm)
+            })
         const data = await res.json()
         console.log(data)
 

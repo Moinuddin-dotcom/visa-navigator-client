@@ -2,16 +2,21 @@ import React from 'react'
 import heroBG from "../../../Images/Heroimage.webp"
 import LatestVisa from './LatestVisa'
 import { Link, useLoaderData } from 'react-router-dom'
+import Banner from './Banner'
 
 const Hero = () => {
     const countryData = useLoaderData()
 
 
     return (
-        <div className='min-h-screen'>
-            <img
+        <div >
+            {/* <img
                 className='w-full opacity-[0.5]'
-                src={heroBG} alt="" />
+                src={heroBG} alt="" /> */}
+            <header>
+                <Banner />
+            </header>
+
             <main>
                 <div className='text-center py-5'>
                     <button className="btn btn-warning btn-wide">Latest visas section</button>

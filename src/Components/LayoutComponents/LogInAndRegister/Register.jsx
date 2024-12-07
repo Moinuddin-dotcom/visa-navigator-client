@@ -8,17 +8,7 @@ const Register = () => {
   const [error, setError] = useState({})
   const navigate = useNavigate()
 
-  const handleGoolge = () => {
-    handleGoolgeLogIn()
-      .then((result) => {
-        setUser(result.user)
-        navigate("/")
-      })
-      .catch((error) => {
-        console.log("ERROR", error)
-        setUser(null);
-      })
-  }
+
 
 
 
@@ -52,10 +42,34 @@ const Register = () => {
     console.log(reg)
 
     newUser(email, password)
-      .then(result => {
+      .then(async (result) => {
         const user = result.user
         toast.success('User registered successfully')
         console.log('User registered successfully', user)
+        const newReg = { name, photo, email }
+        const res = await fetch('http://localhost:8000/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newReg)
+          // body: JSON.stringify({ uid: user.uid, email: user.email, name: user.displayName, photo: user.photoURL })
+        })
+        const data = await res.json();
+        console.log(data)
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'success!',
+            text: 'Visa added successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+
+
+
+
+
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
             navigate("/login")
@@ -73,6 +87,17 @@ const Register = () => {
       })
   }
 
+  const handleGoolge = () => {
+    handleGoolgeLogIn()
+      .then((result) => {
+        setUser(result.user)
+        navigate("/")
+      })
+      .catch((error) => {
+        console.log("ERROR", error)
+        setUser(null);
+      })
+  }
 
   return (
     <div>
