@@ -1,8 +1,28 @@
-# React + Vite
+# Visa Navigator : Simplify the process of checking visa requirements, applying for visas online, and tracking applications with Visa Navigator. Our platform offers a seamless and user-friendly experience tailored to meet diverse visa needs.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Live Site URL : https://cilent-side-sunflower-a10.web.app/
 
-Currently, two official plugins are available:
+# Features
+- **Comprehensive Visa Information:**  View visa details, including type, processing time, required documents, fees, and more.
+- **Dynamic User Interaction:**  Add, update, and delete visas with real-time notifications and a responsive design.
+- **User Authentication:** Secure login and registration system with Google authentication.
+- **Personalized Dashboard:** Track your visa applications and manage your added visas conveniently.
+- **Modern UI/UX:**  Sleek and unique design optimized for mobile, tablet, and desktop views.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Technologies Used
+- **Frontend:** React.js, Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Authentication:** Firebase Authentication
+- **Hosting:** Firebase (client-side) & Vercel (server-side)
+
+# Project Structure
+# Frontend
+- **Pages:** Home, Login, Register, Add Visa, All Visas, Visa Details, My Added Visas, My Visa Applications, 404.
+- **Components:** Navbar, Footer, Cards, Modals, Banner, Loader.
+- **Routing:** React Router with Private Routes.
+- **State Management:** React Context API.
+# Backend
+# Endpoints:
+**/visas:** Get all visas, add visa, update visa, delete visa.
+**/applications:** Add, view, and cancel visa applications.
