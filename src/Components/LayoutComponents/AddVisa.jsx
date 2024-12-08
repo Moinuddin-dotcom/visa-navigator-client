@@ -3,6 +3,7 @@ import Footer from './Footer'
 import Navbar from './Navbar'
 import { AuthContext } from '../Provider/AuthProvider'
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet-async'
 
 const AddVisa = () => {
 
@@ -71,6 +72,9 @@ const AddVisa = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Visa | Add Visa</title>
+            </Helmet>
             <nav>
                 <Navbar />
             </nav>

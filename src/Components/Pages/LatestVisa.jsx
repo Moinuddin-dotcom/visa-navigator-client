@@ -1,4 +1,5 @@
 import React from 'react'
+import { RiVisaFill } from 'react-icons/ri'
 import { TbListDetails } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 // import { useLoaderData } from 'react-router-dom'
@@ -32,15 +33,15 @@ const LatestVisa = ({ countryCard }) => {
                     </figure>
                     <div className="card-body items-start text-center text-white">
                         <h2 className="card-title text-white underline">{countryName} </h2>
-                        <p> Visa Type:  {visaType} </p>
+                        <p>  Visa Type:  {visaType} </p>
                         <p> Processing Time:  {processingTime} </p>
                         <p> Fee:  {fee} </p>
                         <p> Validity:  {validity} </p>
                         <p> ApplicationMethod:{applicationMethod} </p>
                         <div className="card-actions">
                             <Link to={`/visadetails/${_id}`} className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">
-                            <TbListDetails className='text-lg' />
-                            See Details</Link>
+                                <TbListDetails className='text-lg' />
+                                See Details</Link>
                         </div>
                     </div>
                 </div>

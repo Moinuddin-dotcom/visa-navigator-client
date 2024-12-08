@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from 'react-router-dom'
 import Navbar from '../LayoutComponents/Navbar'
 import Footer from '../LayoutComponents/Footer'
 import Modal from './Modal'
+import { Helmet } from 'react-helmet-async'
 
 const VisaDetails = () => {
     const idData = useLoaderData()
@@ -23,6 +24,10 @@ const VisaDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Visa | Visa Details</title>
+            </Helmet>
+
             <nav>
                 <Navbar />
             </nav>

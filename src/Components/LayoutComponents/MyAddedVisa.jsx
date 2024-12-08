@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import MyAddedVisaModal from '../Pages/MyAddedVisaModal';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { TfiWrite } from 'react-icons/tfi';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -77,6 +78,9 @@ const MyAddedVisa = () => {
 
     return (
         <div className='bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#0C6478] to-80%'>
+            <Helmet>
+                <title>Visa | My Added Visa</title>
+            </Helmet>
             <nav>
                 <Navbar />
             </nav>

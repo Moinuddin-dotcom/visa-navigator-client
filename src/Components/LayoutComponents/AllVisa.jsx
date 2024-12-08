@@ -3,12 +3,17 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import LatestVisa from '../Pages/LatestVisa'
 import { useLoaderData } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 const AllVisa = () => {
     const countryData = useLoaderData()
     // console.log(countryData)
     return (
         <div>
+            <Helmet>
+                <title>Visa | All Visa</title>
+            </Helmet>
+
             <nav>
                 <Navbar />
             </nav>

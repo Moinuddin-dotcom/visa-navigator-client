@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../Provider/AuthProvider';
 import socialbg from "../../../../Images/social.jpg"
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -54,6 +55,10 @@ const Login = () => {
   return (
     <div>
       <Toaster />
+
+      <Helmet>
+        <title>Visa | Log In</title>
+      </Helmet>
 
       <main className='min-h-screen md:flex justify-center items-center gap-10 bg-gradient-to-l from-[#F6BCBA] from-10% via-[#F78CBA] via-30% to-[#0C6478] to-80% text-white '>
         <div className="card  w-full max-w-xl shrink-0 shadow-2xl p-10 border">

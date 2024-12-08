@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import { Link, useLoaderData } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet-async'
 
 const VisaApplication = ({ user }) => {
     const applicationData = useLoaderData()
@@ -44,6 +45,9 @@ const VisaApplication = ({ user }) => {
 
     return (
         <div>
+            <Helmet>
+                <title>Visa | My Visa Application</title>
+            </Helmet>
             <nav>
                 <Navbar />
             </nav>
