@@ -8,7 +8,7 @@ const Home = () => {
 
     return (
 
-        <div className='bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#80EE98] to-80%'>
+        <div className='bg-gradient-to-b from-[#0C6478] from-90% via-[#09D1C7] via-0% to-[#80EE98] to-5%'>
             <Helmet>
                 <title>Visa | Home</title>
             </Helmet>

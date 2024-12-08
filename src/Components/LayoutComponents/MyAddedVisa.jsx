@@ -84,11 +84,11 @@ const MyAddedVisa = () => {
             <nav>
                 <Navbar />
             </nav>
-            <h2 className='font-bold text-4xl text-center text-white py-10'>My Added Visas</h2>
+            <h2 className='font-bold text-4xl text-center text-white py-10 animate__animated animate__tada'>My Added Visas</h2>
             <main className='max-w-[80vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10'>
 
                 {loginuserVisa.map((visa) => (
-                    <div key={visa._id} className="card bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#80EE98] to-80% text-white shadow-purple-600 shadow-2xl border">
+                    <div key={visa._id} className="card bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#80EE98] to-80% text-white shadow-purple-600 shadow-2xl border" >
                         <div className="card-body">
                             <h2 className="card-title underline">{visa.countryName}</h2>
                             <p>Visa Type: {visa.visaType}</p>

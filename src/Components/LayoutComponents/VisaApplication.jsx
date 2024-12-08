@@ -52,7 +52,7 @@ const VisaApplication = ({ user }) => {
                 <Navbar />
             </nav>
             <main className='bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#0C6478] to-80%'>
-                <h1 className='text-center font-bold text-4xl text-white p-5'>See application Here</h1>
+                <h1 className='text-center font-bold text-4xl text-white p-5 animate__animated animate__tada'>See application Here</h1>
 
                 <section className='min-h-screen'>
 
@@ -60,7 +60,7 @@ const VisaApplication = ({ user }) => {
 
                         {
                             dataOfApplication.map(applicationCard =>
-                                <div key={applicationData._id} className="hero max-w-[70vw] mx-auto rounded-xl my-5 border-2" style={{
+                                <div key={applicationData._id} className="hero max-w-[70vw] mx-auto rounded-xl my-5 border-2"  style={{
                                     backgroundImage: `url(${applicationCard?.idData?.countryImage})`,
                                     backgroundPosition: 'center',
                                     backgroundSize: 'cover',

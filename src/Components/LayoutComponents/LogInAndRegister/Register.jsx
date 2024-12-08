@@ -4,6 +4,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import socialbg from "../../../../Images/social.jpg"
 import { Helmet } from 'react-helmet-async';
+import { TfiGoogle } from 'react-icons/tfi';
 
 const Register = () => {
   const { setUser, newUser, updateUserProfile, handleGoolgeLogIn } = useContext(AuthContext)
@@ -147,7 +148,9 @@ const Register = () => {
             <h2 className=" text-center text-2xl font-bold">Social</h2>
             <button
               onClick={handleGoolge}
-              className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">Log in with google</button>
+              className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">
+                <TfiGoogle className='text-2xl text-green-500' />
+                Log in with google</button>
 
           </div>
         </div>

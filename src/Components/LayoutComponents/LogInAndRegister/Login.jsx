@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../Provider/AuthProvider';
 import socialbg from "../../../../Images/social.jpg"
 import { Helmet } from 'react-helmet-async';
+import { TfiGoogle } from 'react-icons/tfi';
 
 
 const Login = () => {
@@ -74,15 +75,8 @@ const Login = () => {
               <label className="label">
                 <span className="label-text text-white font-semibold">Password</span>
               </label>
-              {/* <input type={showPassword ? "text" : "password"} name='password' placeholder="password" className="input input-bordered text-black" required /> */}
               <input type="password" name='password' placeholder="password" className="input input-bordered text-black" required />
-              {/* <button
-                onClick={() => setShowPassword(!showPassword)}
-                className="btn btn-sm absolute right-20 bottom-[240px]">
-                {
-                  showPassword ? <FaRegEye /> : <RiEyeCloseLine />
-                }
-              </button> */}
+              
               <label className="label">
                 <a href="#" className="label-text text-white font-semibold-alt link link-hover">Forgot password?</a>
               </label>
@@ -111,7 +105,9 @@ const Login = () => {
             <h2 className=" text-center text-2xl font-bold">Social</h2>
             <button
               onClick={handleGoolge}
-              className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">Log in with google</button>
+              className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">
+                <TfiGoogle className='text-2xl text-green-500' />
+                Log in with google</button>
 
           </div>
         </div>

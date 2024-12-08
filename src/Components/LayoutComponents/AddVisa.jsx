@@ -82,7 +82,7 @@ const AddVisa = () => {
                 {/* input filed  */}
                 <section className="bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#0C6478] to-80% flex items-center justify-center min-h-screen">
                     <div className="p-8 rounded-lg shadow-purple-600 shadow-2xl max-w-lg w-full text-black">
-                        <h1 className="text-2xl font-bold mb-6 text-center">Add Visa</h1>
+                        <h1 className="text-3xl font-bold mb-6 text-center text-white animate__animated animate__tada">Add Visa</h1>
                         <form onSubmit={handleAddVisa} >
                             {/* <!-- Country Image --> */}
                             <div className="mb-4">

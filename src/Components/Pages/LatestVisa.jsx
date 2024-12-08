@@ -24,7 +24,7 @@ const LatestVisa = ({ countryCard }) => {
         <div>
 
             <div className="card">
-                <div className="card bg-[#0C6478] shadow-purple-600 shadow-2xl">
+                <div className="card bg-[#0C6478] shadow-purple-600 shadow-2xl" data-aos="fade-up-right" data-aos-once="false">
                     <figure className=" ">
                         <img
                             src={countryImage}

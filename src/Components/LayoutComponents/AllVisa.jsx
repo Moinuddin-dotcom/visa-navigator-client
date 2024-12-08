@@ -18,7 +18,7 @@ const AllVisa = () => {
                 <Navbar />
             </nav>
             <main className='bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#80EE98] to-80%'>
-                <h1 className='font-bold text-4xl text-center text-white py-10'>See All Visa Processing </h1>
+                <h1 className='font-bold text-4xl text-center text-white py-10 animate__animated animate__tada'>See All Visa Processing </h1>
                 <section className='max-w-[90vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                     {
                         countryData.map((countryCard) =>
