@@ -44,7 +44,6 @@ const Modal = ({ idData }) => {
                 confirmButtonText: 'Cool'
             })
             form.reset();
-            // toast.success("Visa added successfully")
         }
 
 
@@ -57,9 +56,9 @@ const Modal = ({ idData }) => {
         <div>
             <Toaster />
             <dialog id="my_modal_4" className="modal">
-                <div className="modal-box w-11/12 max-w-5xl">
+                <div className="modal-box w-11/12 max-w-5xl bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#0C6478] to-80%">
                     {/* form start */}
-                    <div className="max-w-md mx-auto mt-10 p-5 border border-gray-300 rounded-lg shadow-md">
+                    <div className="max-w-md mx-auto mt-10 p-5 shadow-purple-600 shadow-2xl rounded-lg">
                         <h2 className="text-2xl font-semibold text-center mb-5">Apply for Visa</h2>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
@@ -67,8 +66,6 @@ const Modal = ({ idData }) => {
                                 <input
                                     type="email"
                                     name="email"
-                                    // value={formData.email}
-                                    // readOnly
                                     placeholder="email"
                                     className="w-full px-3 py-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
                                 />

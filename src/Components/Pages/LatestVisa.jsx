@@ -1,4 +1,5 @@
 import React from 'react'
+import { TbListDetails } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 // import { useLoaderData } from 'react-router-dom'
 
@@ -37,7 +38,9 @@ const LatestVisa = ({ countryCard }) => {
                         <p> Validity:  {validity} </p>
                         <p> ApplicationMethod:{applicationMethod} </p>
                         <div className="card-actions">
-                            <Link to={`/visadetails/${_id}`} className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">See Details</Link>
+                            <Link to={`/visadetails/${_id}`} className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">
+                            <TbListDetails className='text-lg' />
+                            See Details</Link>
                         </div>
                     </div>
                 </div>

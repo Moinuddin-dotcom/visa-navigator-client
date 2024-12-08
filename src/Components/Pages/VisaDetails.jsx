@@ -54,7 +54,7 @@ const VisaDetails = () => {
                                 <p className="mb-5"> Fee: {fee}</p>
                                 <p className="mb-5"> Validity: {validity}</p>
                                 <p className="mb-5"> Application Method: {applicationMethod}</p>
-                                <button onClick={() => document.getElementById('my_modal_4').showModal()} className="btn btn-primary w-full">Apply for the visa</button>
+                                <button onClick={() => document.getElementById('my_modal_4').showModal()} className="btn shadow-purple-600 shadow-2xl bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">Apply for the visa</button>
                             </div>
 
                         </div>

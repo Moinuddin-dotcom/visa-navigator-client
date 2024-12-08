@@ -6,6 +6,8 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import MyAddedVisaModal from '../Pages/MyAddedVisaModal';
+import { RiDeleteBin5Line } from 'react-icons/ri';
+import { TfiWrite } from 'react-icons/tfi';
 
 
 
@@ -74,17 +76,17 @@ const MyAddedVisa = () => {
 
 
     return (
-        <div>
+        <div className='bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#0C6478] to-80%'>
             <nav>
                 <Navbar />
             </nav>
-            <h2 className='font-bold text-4xl text-center py-10'>My Added Visas</h2>
+            <h2 className='font-bold text-4xl text-center text-white py-10'>My Added Visas</h2>
             <main className='max-w-[80vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10'>
 
                 {loginuserVisa.map((visa) => (
-                    <div key={visa._id} className="card bg-base-100 shadow-purple-600 shadow-2xl border">
+                    <div key={visa._id} className="card bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#80EE98] to-80% text-white shadow-purple-600 shadow-2xl border">
                         <div className="card-body">
-                            <h2 className="card-title">{visa.countryName}</h2>
+                            <h2 className="card-title underline">{visa.countryName}</h2>
                             <p>Visa Type: {visa.visaType}</p>
                             <p>Processing Time: {visa.processingTime}</p>
                             <p>Fee: {visa.fee}</p>
@@ -93,10 +95,14 @@ const MyAddedVisa = () => {
                             <div className="flex justify-around">
                                 <button
                                     onClick={() => handleUpdateClick(visa)}
-                                    className="btn btn-sm">Update</button>
+                                    className="btn btn-sm bg-gradient-to-r from-[#318969] to-[#001C44] text-white">
+                                    <TfiWrite />
+                                    Update</button>
                                 <button
                                     onClick={() => handleDelete(visa._id)}
-                                    className="btn btn-sm">Delete</button>
+                                    className="btn btn-sm bg-gradient-to-r from-[#b74242] to-[#001C44] text-white">
+                                    <RiDeleteBin5Line />
+                                    Delete</button>
                             </div>
                         </div>
                         <figure>

@@ -47,22 +47,28 @@ const VisaApplication = ({ user }) => {
             <nav>
                 <Navbar />
             </nav>
-            <main>
-                <h1 className='text-center font-bold text-4xl'>My Visa application Here (Private) </h1>
+            <main className='bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#0C6478] to-80%'>
+                <h1 className='text-center font-bold text-4xl text-white p-5'>See application Here</h1>
 
                 <section className='min-h-screen'>
 
                     <div>
+
                         {
                             dataOfApplication.map(applicationCard =>
-                                <div key={applicationData._id} className="hero bg-base-200 border-2 mb-10">
-                                    <div className="hero-content flex-col gap-20 lg:flex-row-reverse">
+                                <div key={applicationData._id} className="hero max-w-[70vw] mx-auto rounded-xl my-5 border-2" style={{
+                                    backgroundImage: `url(${applicationCard?.idData?.countryImage})`,
+                                    backgroundPosition: 'center',
+                                    backgroundSize: 'cover',
+                                    backgroundRepeat: 'no-repeat',
+                                    // opacity: '0.5'
+                                }}>
+                                    <div className="hero-content flex-col gap-20 lg:flex-row-reverse" >
                                         <img
-                                            className='h-[300px] w-[500px] rounded-xl'
+                                            className='h-[300px] w-[500px] rounded-xl shadow-purple-600 shadow-2xl border-4 border-purple-600'
                                             src={applicationCard?.idData?.countryImage} />
                                         <div>
-                                            {/* <h1>Data here: {applicationData.length}</h1> */}
-                                            <div className='space-y-2'>
+                                            <div className='space-y-2 text-white' >
                                                 <h1 className="text-5xl font-bold">{applicationCard?.idData?.countryName}</h1>
                                                 <p className=""> <span className='font-bold'> Visa type:</span>  {applicationCard?.idData?.visaType}</p>
                                                 <p className=""> <span className='font-bold'> Processing time:</span> {applicationCard?.idData?.processingTime}</p>
@@ -75,7 +81,7 @@ const VisaApplication = ({ user }) => {
                                             </div>
                                             <button
                                                 onClick={() => handleDelete(applicationCard._id)}
-                                                className="btn btn-primary">Cancel</button>
+                                                className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white btn-wide">Cancel</button>
                                         </div>
                                     </div>
                                 </div>

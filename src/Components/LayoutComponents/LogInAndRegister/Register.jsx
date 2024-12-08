@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import socialbg from "../../../../Images/social.jpg"
 
 const Register = () => {
   const { setUser, newUser, updateUserProfile, handleGoolgeLogIn } = useContext(AuthContext)
@@ -18,11 +19,6 @@ const Register = () => {
     e.preventDefault();
     const form = e.target
     const name = form.name.value
-    // if (name.length < 5) {
-    //   setError({ ...error, name: "Atleast 5 character" })
-    //   toast.error('Use valid name')
-    //   return
-    // }
     const photo = form.photo.value
     const email = form.email.value
     const password = form.password.value
@@ -53,11 +49,10 @@ const Register = () => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(newReg)
-          // body: JSON.stringify({ uid: user.uid, email: user.email, name: user.displayName, photo: user.photoURL })
         })
         const data = await res.json();
         // console.log(data)
-       
+
 
 
 
@@ -66,8 +61,6 @@ const Register = () => {
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
             navigate("/login")
-            // setUser({ ...user, displayName: name, photoURL: photo })
-            // console.log("Ok")
           })
           .catch(err => {
             // console.log(err.message)
@@ -95,48 +88,35 @@ const Register = () => {
   return (
     <div>
       <Toaster />
-      <h1>Register Dashboard</h1>
 
-      <main className='min-h-screen md:flex justify-center items-center gap-10'>
+      <main className='min-h-screen md:flex justify-center items-center gap-10 bg-gradient-to-l from-[#F6BCBA] from-10% via-[#F78CBA] via-30% to-[#0C6478] to-80% text-white '>
         <div className="card w-full max-w-xl shrink-0 shadow-2xl p-10 border">
           <h1 className='text-center btn rounded-none bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white'> Register Dashboard</h1>
           <form onSubmit={handleRegisterFrom} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-white font-semibold">Name</span>
               </label>
               <input type="text" name='name' placeholder="name" className="input input-bordered text-black" required />
             </div>
-            {/* {
-              error.name &&
-              <p className="text-red-500 text-xs">{error.name}</p>
-
-            } */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">PhotoURL</span>
+                <span className="label-text text-white font-semibold">PhotoURL</span>
               </label>
               <input type="text" name='photo' placeholder="PhotoURL" className="input input-bordered text-black" required />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-white font-semibold">Email</span>
               </label>
               <input type="email" name='email' placeholder="email" className="input input-bordered text-black" required />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-white font-semibold">Password</span>
               </label>
-              {/* <input type={showPassword ? "text" : "password"} name='password' placeholder="password" className="input input-bordered text-black" required /> */}
               <input type="password" name='password' placeholder="password" className="input input-bordered text-black" required />
-              {/* <button
-                onClick={() => setShowPassword(!showPassword)}
-                className="btn btn-sm absolute right-20 bottom-[192px]">
-                {
-                  showPassword ? <FaRegEye /> : <RiEyeCloseLine />
-                }
-              </button> */}
+
             </div>
             {
               error.password &&
@@ -146,8 +126,8 @@ const Register = () => {
               <button className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">Register</button>
             </div>
             <div>
-              <p className="text-center text-black">Allready have an account?
-                <Link to={"/login"} className="link link-hover text-green-600 font-semibold ml-2">Log in</Link>
+              <p className="text-center text-white">Allready have an account?
+                <Link to={"/login"} className="link link-hover text-green-600 font-semibold ml-2 underline">Log in</Link>
               </p>
             </div>
           </form>
@@ -156,7 +136,7 @@ const Register = () => {
         <div className="card bg-base-100 image-full w-96 shadow-xl">
           <figure>
             <img
-              // src={socialbg}
+              src={socialbg}
               alt="icon" />
           </figure>
           <div className="card-body flex justify-center items-center">
