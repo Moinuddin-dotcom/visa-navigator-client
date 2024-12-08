@@ -10,17 +10,16 @@ const Hero = () => {
 
     return (
         <div >
-            {/* <img
-                className='w-full opacity-[0.5]'
-                src={heroBG} alt="" /> */}
-            <header>
+            <header className=''>
                 <Banner />
             </header>
 
             <main>
                 <div className='text-center py-5'>
-                    <button className="btn btn-warning btn-wide">Latest visas section</button>
-                    <h1>Tota l data here: {countryData.length}</h1>
+                    <button className="btn btn-wide bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">Latest visas section</button>
+                    <p className="py-6 px-4 md:px-64 text-center text-white text-lg">
+                        Choose your favourite country for your future
+                    </p>
                 </div>
                 <div className='max-w-[80vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                     {
@@ -30,8 +29,8 @@ const Hero = () => {
                     }
                 </div>
                 <div className="text-center my-20">
-                    <button className="btn btn-warning w-3/4 ">
-                        <Link to={"/allvisa"} >See all visas</Link>
+                    <button className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-3/4 ">
+                        <Link to={"/allvisa"}  >See all visas</Link>
                     </button>
                 </div>
             </main>

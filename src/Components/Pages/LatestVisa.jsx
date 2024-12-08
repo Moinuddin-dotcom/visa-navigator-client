@@ -22,22 +22,22 @@ const LatestVisa = ({ countryCard }) => {
         <div>
 
             <div className="card">
-                <div className="card bg-base-100 shadow-xl border-2">
-                    <figure className="p-2 ">
+                <div className="card bg-[#0C6478] shadow-purple-600 shadow-2xl">
+                    <figure className=" ">
                         <img
                             src={countryImage}
                             alt="countryImage"
-                            className="rounded-xl w-full h-[350px]" />
+                            className="rounded-t-xl w-full h-[250px]" />
                     </figure>
-                    <div className="card-body items-start text-center text-gray-500">
-                        <h2 className="card-title text-black">{countryName} </h2>
+                    <div className="card-body items-start text-center text-white">
+                        <h2 className="card-title text-white underline">{countryName} </h2>
                         <p> Visa Type:  {visaType} </p>
                         <p> Processing Time:  {processingTime} </p>
                         <p> Fee:  {fee} </p>
                         <p> Validity:  {validity} </p>
-                        <p> ApplicationMethod:  {applicationMethod} </p>
+                        <p> ApplicationMethod:{applicationMethod} </p>
                         <div className="card-actions">
-                            <Link to={`/visadetails/${_id}`} className="btn btn-primary">See Details</Link>
+                            <Link to={`/visadetails/${_id}`} className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">See Details</Link>
                         </div>
                     </div>
                 </div>

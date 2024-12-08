@@ -1,31 +1,36 @@
 import React from 'react'
 
+import bannerImag1 from "../../../Images/Banner-1.jpeg"
+import bannerImag2 from "../../../Images/Banner-2.jpeg"
+import bannerImag3 from "../../../Images/Banner-3.jpeg"
+import bannerImag4 from "../../../Images/Banner-4.jpeg"
+
 const Banner = () => {
     return (
-        <div className=' w-[80vw] mx-auto min-h-screen border'>
-            {/* grid grid-cols-1 md:grid-cols-2 */}
+        <div className=''>
 
             <section className=''>
                 <div className="carousel w-full">
                     <div id="item1" className="carousel-item w-full">
                         <img
-                            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-                            className="w-full" />
+                            src={bannerImag1}
+                            className="w-full h-[80vh] " />
+
                     </div>
                     <div id="item2" className="carousel-item w-full">
                         <img
-                            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-                            className="w-full" />
+                            src={bannerImag2}
+                            className="w-full h-[80vh]" />
                     </div>
                     <div id="item3" className="carousel-item w-full">
                         <img
-                            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-                            className="w-full" />
+                            src={bannerImag3}
+                            className="w-full h-[80vh]" />
                     </div>
                     <div id="item4" className="carousel-item w-full">
                         <img
-                            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-                            className="w-full" />
+                            src={bannerImag4}
+                            className="w-full h-[80vh]" />
                     </div>
                 </div>
                 <div className="flex w-full justify-center gap-2 py-2">
@@ -37,17 +42,16 @@ const Banner = () => {
             </section>
             <section>
                 <div>
-                    <h1 className="text-5xl font-bold text-center">Box Office News!</h1>
-                    <p className="py-6 text-center">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
+                    <h1 className="text-5xl font-bold text-center text-white">Visa-Navigator</h1>
+                    <p className="py-6 px-4 md:px-64 text-center text-white text-sm">
+                        The Visa Navigator helps you to quickly and easily find the visa you need to enter and stay in Germany. Answer a few questions about the purpose of your entry and get sound information on how and where to apply for the relevant visa.
                     </p>
                     <div className='text-center'>
-
-                        <button className="btn btn-primary">Get Started</button>
+                        <button className="btn btn-wide bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">Start</button>
                     </div>
                 </div>
             </section>
+            <div className="divider"></div>
         </div>
     )
 }

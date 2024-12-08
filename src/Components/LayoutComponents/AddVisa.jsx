@@ -63,9 +63,6 @@ const AddVisa = () => {
         }
 
 
-
-        // e.resete()
-
     }
 
 
@@ -78,28 +75,28 @@ const AddVisa = () => {
             <nav>
                 <Navbar />
             </nav>
-            <main>
-                <h1 className='font-bold text-4xl text-center py-10'>Add Visa Here (Private) </h1>
+            <main className='bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#80EE98] to-80%'>
+                <h1 className='font-bold text-4xl text-center text-white py-10'>Add Visa Here (Private) </h1>
                 {/* input filed  */}
-                <section className="bg-gray-900 flex items-center justify-center min-h-screen">
-                    <div className="bg-gray-400 p-8 rounded-lg shadow-lg max-w-lg w-full">
+                <section className="bg-gradient-to-b from-[#0C6478] from-10% via-[#09D1C7] via-30% to-[#0C6478] to-80% flex items-center justify-center min-h-screen">
+                    <div className="p-8 rounded-lg shadow-purple-600 shadow-2xl max-w-lg w-full text-white">
                         <h1 className="text-2xl font-bold mb-6 text-center">Add Visa</h1>
                         <form onSubmit={handleAddVisa} >
                             {/* <!-- Country Image --> */}
                             <div className="mb-4">
-                                <label for="countryImage" className="block text-sm font-medium text-gray-700 mb-1">Country Image (URL):</label>
+                                <label for="countryImage" className="block text-sm font-medium text-white mb-1">Country Image (URL):</label>
                                 <input type="text" name="countryImage" placeholder="Enter image URL" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required />
                             </div>
 
                             {/* <!-- Country Name --> */}
                             <div className="mb-4">
-                                <label for="countryName" className="block text-sm font-medium text-gray-700 mb-1">Country Name:</label>
+                                <label for="countryName" className="block text-sm font-medium text-white mb-1">Country Name:</label>
                                 <input type="text" name="countryName" placeholder="Enter country name" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required />
                             </div>
 
                             {/* <!-- Visa Type --> */}
                             <div className="mb-4">
-                                <label for="visaType" className="block text-sm font-medium text-gray-700 mb-1">Visa Type:</label>
+                                <label for="visaType" className="block text-sm font-medium text-white mb-1">Visa Type:</label>
                                 <select name="visaType" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
                                     <option value="Tourist Visa">Tourist Visa</option>
                                     <option value="Student Visa">Student Visa</option>
@@ -109,59 +106,59 @@ const AddVisa = () => {
 
                             {/* <!-- Processing Time --> */}
                             <div className="mb-4">
-                                <label for="processingTime" className="block text-sm font-medium text-gray-700 mb-1">Processing Time:</label>
+                                <label for="processingTime" className="block text-sm font-medium text-white mb-1">Processing Time:</label>
                                 <input type="text" name="processingTime" placeholder="e.g., 7-10 days" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required />
                             </div>
 
                             {/* <!-- Required Documents --> */}
                             <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Required Documents:</label>
+                                <label className="block text-sm font-medium text-white mb-1">Required Documents:</label>
                                 <div>
                                     <input type="checkbox" name="documents" value="Valid passport" className="mr-2" />
-                                    <label for="passport" className="text-gray-700">Valid passport</label>
+                                    <label for="passport" className="text-white">Valid passport</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" name="documents" value="Visa application form" className="mr-2" />
-                                    <label for="visaForm" className="text-gray-700">Visa application form</label>
+                                    <label for="visaForm" className="text-white">Visa application form</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" name="documents" value="Recent passport-sized photograph" className="mr-2" />
-                                    <label for="photo" className="text-gray-700">Recent passport-sized photograph</label>
+                                    <label for="photo" className="text-white">Recent passport-sized photograph</label>
                                 </div>
                             </div>
 
                             {/* <!-- Description --> */}
                             <div className="mb-4">
-                                <label for="description" className="block text-sm font-medium text-gray-700 mb-1">Description:</label>
+                                <label for="description" className="block text-sm font-medium text-white mb-1">Description:</label>
                                 <textarea name="description" rows="4" placeholder="Enter a description" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required></textarea>
                             </div>
 
                             {/* <!-- Age Restriction --> */}
                             <div className="mb-4">
-                                <label for="ageRestriction" className="block text-sm font-medium text-gray-700 mb-1">Age Restriction:</label>
+                                <label for="ageRestriction" className="block text-sm font-medium text-white mb-1">Age Restriction:</label>
                                 <input type="number" name="ageRestriction" placeholder="Enter minimum age" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required />
                             </div>
 
                             {/* <!-- Fee --> */}
                             <div className="mb-4">
-                                <label for="fee" className="block text-sm font-medium text-gray-700 mb-1">Fee:</label>
+                                <label for="fee" className="block text-sm font-medium text-white mb-1">Fee:</label>
                                 <input type="number" name="fee" placeholder="Enter fee amount" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required />
                             </div>
 
                             {/* <!-- Validity --> */}
                             <div className="mb-4">
-                                <label for="validity" className="block text-sm font-medium text-gray-700 mb-1">Validity:</label>
+                                <label for="validity" className="block text-sm font-medium text-white mb-1">Validity:</label>
                                 <input type="text" name="validity" placeholder="e.g., 6 months" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required />
                             </div>
 
                             {/* <!-- Application Method --> */}
                             <div className="mb-6">
-                                <label for="applicationMethod" className="block text-sm font-medium text-gray-700 mb-1">Application Method:</label>
+                                <label for="applicationMethod" className="block text-sm font-medium text-white mb-1">Application Method:</label>
                                 <input type="text" name="applicationMethod" placeholder="e.g., Online" className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required />
                             </div>
 
                             {/* <!-- Submit Button --> */}
-                            <button type="submit" className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 w-full">Add Visa</button>
+                            <button type="submit" className="py-2 px-4 rounded-md w-full bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">Add Visa</button>
                         </form>
                     </div>
                 </section>
