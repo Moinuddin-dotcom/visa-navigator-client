@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const Modal = ({ idData }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted");
+        // console.log("Form submitted");
         const form = e.target
         const email = form.email.value
         const firstName = form.firstName.value
@@ -25,9 +25,9 @@ const Modal = ({ idData }) => {
             fee,
             idData
         }
-        console.log(application)
+        // console.log(application)
 
-        const res = await fetch("http://localhost:8000/application", {
+        const res = await fetch("https://server-side-a10.vercel.app/application", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ const Modal = ({ idData }) => {
             body: JSON.stringify(application)
         })
         const data = await res.json()
-        console.log(data)
+        // console.log(data)
         if (data.insertedId) {
             Swal.fire({
                 title: 'success!',

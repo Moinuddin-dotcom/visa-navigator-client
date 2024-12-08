@@ -6,7 +6,7 @@ import Modal from './Modal'
 
 const VisaDetails = () => {
     const idData = useLoaderData()
-    console.log(idData)
+    // console.log(idData)
     const {
         _id,
         countryImage,

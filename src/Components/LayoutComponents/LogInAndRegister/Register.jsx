@@ -39,15 +39,15 @@ const Register = () => {
     }
 
     const reg = { name, photo, email, password }
-    console.log(reg)
+    // console.log(reg)
 
     newUser(email, password)
       .then(async (result) => {
         const user = result.user
         toast.success('User registered successfully')
-        console.log('User registered successfully', user)
+        // console.log('User registered successfully', user)
         const newReg = { name, photo, email }
-        const res = await fetch('http://localhost:8000/users', {
+        const res = await fetch('https://server-side-a10.vercel.app/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ const Register = () => {
           // body: JSON.stringify({ uid: user.uid, email: user.email, name: user.displayName, photo: user.photoURL })
         })
         const data = await res.json();
-        console.log(data)
+        // console.log(data)
        
 
 
@@ -70,7 +70,7 @@ const Register = () => {
             // console.log("Ok")
           })
           .catch(err => {
-            console.log(err.message)
+            // console.log(err.message)
           })
         setUser(user)
       })

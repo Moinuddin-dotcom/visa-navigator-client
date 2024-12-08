@@ -32,9 +32,9 @@ const MyAddedVisaModal = ({ updateSelectedVisa, refreshVisas }) => {
             applicationMethod,
             // email: user?.email
         }
-        console.log(updatedVisa)
+        // console.log(updatedVisa)
 
-        const res = await fetch(`http://localhost:8000/visa/${updateSelectedVisa._id}`, {
+        const res = await fetch(`https://server-side-a10.vercel.app/visa/${updateSelectedVisa._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ const MyAddedVisaModal = ({ updateSelectedVisa, refreshVisas }) => {
             body: JSON.stringify(updatedVisa)
         })
         const data = await res.json()
-        console.log(data)
+        // console.log(data)
 
         if (data.modifiedCount > 0) {
             Swal.fire({

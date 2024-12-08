@@ -16,7 +16,7 @@ const MyAddedVisa = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:8000/visa?email=${user.email}`)
+            fetch(`https://server-side-a10.vercel.app/visa?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setLoginuserVisa(data);
@@ -38,11 +38,11 @@ const MyAddedVisa = () => {
             if (result.isConfirmed) {
 
 
-                const res = await fetch(`http://localhost:8000/visa/${id}`, {
+                const res = await fetch(`https://server-side-a10.vercel.app/visa/${id}`, {
                     method: 'DELETE',
                 })
                 const data = await res.json()
-                console.log("Delete is done", data)
+                // console.log("Delete is done", data)
                 if (data.deletedCount > 0) {
                     const remaining = loginuserVisa.filter(remain => remain._id !== id)
                     setLoginuserVisa(remaining)
@@ -65,7 +65,7 @@ const MyAddedVisa = () => {
     };
 
     const refreshVisas = () => {
-        fetch(`http://localhost:8000/visa?email=${user.email}`)
+        fetch(`https://server-side-a10.vercel.app/visa?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setLoginuserVisa(data);

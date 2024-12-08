@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCL9RDb2GPl-SrxQR5YjXCcXHZSAEg3u80",
-  authDomain: "cilent-side-sunflower-a10.firebaseapp.com",
-  projectId: "cilent-side-sunflower-a10",
-  storageBucket: "cilent-side-sunflower-a10.firebasestorage.app",
-  messagingSenderId: "87013489469",
-  appId: "1:87013489469:web:afb4bd316d2479b2f92354"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

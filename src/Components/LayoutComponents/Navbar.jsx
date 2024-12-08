@@ -1,34 +1,16 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { AuthContext } from '../Provider/AuthProvider'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    // console.log(user)
-
-
-
-    // const pictureNavigation = <>
-    //     <li><a>Profile</a></li>
-    //     <li><a>Logout</a></li>
-    // </>
-    // const loginRegister = <>
-    //     <div>
-    //         <button className="btn btn-warning">
-    //             <Link to={"/login"} >Log In</Link>
-    //         </button>
-    //         <button className="btn btn-warning">
-    //             <Link to={"/register"} >Register</Link>
-    //         </button>
-    //     </div>
-    // </>
 
     const navbarNavigation = <>
-        <li><Link to={"/"} >Home</Link></li>
-        <li><Link to={"/allvisa"} >All Visa</Link></li>
-        <li><Link to={"/addvisa"} >Add Visa</Link></li>
-        <li><Link to={"/myaddedvisa"} >My Added Visa</Link></li>
-        <li><Link to={"/visaApplication"} >My Visa Application</Link></li>
+        <li><NavLink className="font-semibold" to={"/"} >Home</NavLink></li>
+        <li><NavLink className="font-semibold" to={"/allvisa"} >All Visa</NavLink></li>
+        <li><NavLink className="font-semibold" to={"/addvisa"} >Add Visa</NavLink></li>
+        <li><NavLink className="font-semibold" to={"/myaddedvisa"} >My Added Visa</NavLink></li>
+        <li><NavLink className="font-semibold" to={"/visaApplication"} >My Visa Application</NavLink></li>
     </>
 
 
@@ -37,7 +19,7 @@ const Navbar = () => {
     return (
         <div>
             <div className="NavStart max-w-[80vw] mx-auto border-2">
-                <div className="navbar bg-base-100">
+                <div className="navbar bg-gradient-to-r from-[#E3EED4] to-[#AEC3B0] text-white">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,10 +42,8 @@ const Navbar = () => {
                                 {navbarNavigation}
                             </ul>
                         </div>
-                        <a className="btn btn-ghost text-xl hidden md:flex">daisyUI</a>
+                        <Link to={"/"} className="btn btn-ghost text-xl hidden md:flex  hover:text-black">VISA NAVIGATOR</Link>
                     </div>
-
-
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             {navbarNavigation}
@@ -74,11 +54,9 @@ const Navbar = () => {
                         <div className="dropdown dropdown-end">
                             {
                                 user ?
-                                    // <div>{user.email}</div>
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
                                             <img
-                                                // className='w-10'
                                                 src={user.photoURL || "https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"}
                                                 alt="User Image"
                                             />
@@ -94,7 +72,6 @@ const Navbar = () => {
                                         </button>
                                     </div>
                             }
-                            {/* <div className=''> */}
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
@@ -102,7 +79,6 @@ const Navbar = () => {
                                     user &&
                                     <div>
                                         <li><a>{user && user?.displayName}</a></li>
-                                        {/* <li><Link>MoinUddin</Link></li> */}
                                         <li><button onClick={logOut}>Logout</button></li>
                                     </div>
                                 }

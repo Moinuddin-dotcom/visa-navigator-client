@@ -5,7 +5,8 @@ import Footer from '../LayoutComponents/Footer'
 
 const Home = () => {
     return (
-        <div>
+        <div className='bg-[#AEC3B0]'>
+            {/* bg-[#E3EED4] */}
             <nav>
                 <Navbar />
             </nav>

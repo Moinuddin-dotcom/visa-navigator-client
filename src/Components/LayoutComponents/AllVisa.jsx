@@ -6,7 +6,7 @@ import { useLoaderData } from 'react-router-dom'
 
 const AllVisa = () => {
     const countryData = useLoaderData()
-    console.log(countryData)
+    // console.log(countryData)
     return (
         <div>
             <nav>

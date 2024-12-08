@@ -6,12 +6,12 @@ import Swal from 'sweetalert2'
 
 const VisaApplication = ({ user }) => {
     const applicationData = useLoaderData()
-    console.log(applicationData)
+    // console.log(applicationData)
     const [dataOfApplication, setDataOfApplication] = useState(applicationData)
     // console.log(removeCard)
 
     const handleDelete = (_id) => {
-        console.log(_id)
+        // console.log(_id)
 
         Swal.fire({
             title: "Are you sure?",
@@ -24,11 +24,11 @@ const VisaApplication = ({ user }) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
 
-                const res = await fetch(`http://localhost:8000/application/${_id}`, {
+                const res = await fetch(`https://server-side-a10.vercel.app/application/${_id}`, {
                     method: 'DELETE'
                 })
                 const data = await res.json();
-                console.log(data)
+                // console.log(data)
                 if (data.deletedCount > 0) {
                     Swal.fire({
                         title: "Deleted!",
@@ -58,7 +58,7 @@ const VisaApplication = ({ user }) => {
                                 <div key={applicationData._id} className="hero bg-base-200 border-2 mb-10">
                                     <div className="hero-content flex-col gap-20 lg:flex-row-reverse">
                                         <img
-                                            className='h-[300px] w-[500px]'
+                                            className='h-[300px] w-[500px] rounded-xl'
                                             src={applicationCard?.idData?.countryImage} />
                                         <div>
                                             {/* <h1>Data here: {applicationData.length}</h1> */}
@@ -70,7 +70,7 @@ const VisaApplication = ({ user }) => {
                                                 <p className=""> <span className='font-bold'> Validity: </span>{applicationCard?.idData?.validity}</p>
                                                 <p className=""> <span className='font-bold'> Application method:</span> {applicationCard?.idData?.applicationMethod}</p>
                                                 <p className=""> <span className='font-bold'> Applied date:</span> {applicationCard?.appliedDate}</p>
-                                                <p className=""> <span className='font-bold'> Applicant's </span>name: {applicationCard?.name}</p>
+                                                <p className=""> <span className='font-bold'> Applicant's name</span>: {applicationCard?.name}</p>
                                                 <p className=""> <span className='font-bold'> Applicant’s email:</span> {applicationCard?.email}</p>
                                             </div>
                                             <button

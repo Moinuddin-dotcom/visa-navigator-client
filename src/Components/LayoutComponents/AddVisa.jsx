@@ -7,11 +7,11 @@ import Swal from 'sweetalert2'
 const AddVisa = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user)
+    // console.log(user)
 
     const handleAddVisa = async (e) => {
         e.preventDefault();
-        console.log('Form submitted');
+        // console.log('Form submitted');
 
         const form = e.target
         const countryImage = form.countryImage.value
@@ -38,10 +38,10 @@ const AddVisa = () => {
             applicationMethod,
             email: user?.email
         }
-        console.log(mainForm)
+        // console.log(mainForm)
 
 
-        const res = await fetch("http://localhost:8000/visa",
+        const res = await fetch("https://server-side-a10.vercel.app/visa",
             {
                 method: 'POST',
                 headers: {
@@ -50,7 +50,7 @@ const AddVisa = () => {
                 body: JSON.stringify(mainForm)
             })
         const data = await res.json()
-        console.log(data)
+        // console.log(data)
         if (data.insertedId) {
             Swal.fire({
                 title: 'success!',

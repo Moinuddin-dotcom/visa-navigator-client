@@ -21,7 +21,7 @@ const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Hero />,
-                loader: () => fetch("http://localhost:8000/visa?limit=6")
+                loader: () => fetch("https://server-side-a10.vercel.app/visa?limit=6")
             },
         ]
     },
@@ -31,12 +31,12 @@ const Router = createBrowserRouter([
             <PrivateRouter>
                 <VisaDetails />,
             </PrivateRouter>,
-        loader: ({ params }) => fetch(`http://localhost:8000/visa/${params.id}`)
+        loader: ({ params }) => fetch(`https://server-side-a10.vercel.app/visa/${params.id}`)
     },
     {
         path: "/allvisa",
         element: <AllVisa />,
-        loader: () => fetch("http://localhost:8000/visa")
+        loader: () => fetch("https://server-side-a10.vercel.app/visa")
     },
     {
         path: "/addvisa",
@@ -51,7 +51,7 @@ const Router = createBrowserRouter([
             <PrivateRouter>
                 <MyAddedVisa />
             </PrivateRouter>,
-        // loader: () => fetch("http://localhost:8000/visa?email")
+        // loader: () => fetch("https://server-side-a10.vercel.app/visa?email")
     },
     {
         path: "/visaApplication",
@@ -59,7 +59,7 @@ const Router = createBrowserRouter([
             <PrivateRouter>
                 <VisaApplication />,
             </PrivateRouter>,
-        loader: () => fetch("http://localhost:8000/application")
+        loader: () => fetch("https://server-side-a10.vercel.app/application")
     },
     {
         path: "/login",

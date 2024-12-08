@@ -33,13 +33,13 @@ const Login = () => {
     const password = form.password.value
 
     const user = { email, password }
-    console.log(user)
+    // console.log(user)
 
     userlogIn(email, password)
       .then(result => {
         const user = result.user
         setUser(user)
-        console.log("User logged in successfully", result.user)
+        // console.log("User logged in successfully", result.user)
         toast.success('User logged in successfully')
         navigate(location?.state ? location.state : "/")
       })
