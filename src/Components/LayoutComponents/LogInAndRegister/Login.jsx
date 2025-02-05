@@ -76,7 +76,7 @@ const Login = () => {
                 <span className="label-text text-white font-semibold">Password</span>
               </label>
               <input type="password" name='password' placeholder="password" className="input input-bordered text-black" required />
-              
+
               <label className="label">
                 <a href="#" className="label-text text-white font-semibold-alt link link-hover">Forgot password?</a>
               </label>
@@ -106,8 +106,8 @@ const Login = () => {
             <button
               onClick={handleGoolge}
               className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">
-                <TfiGoogle className='text-2xl text-green-500' />
-                Log in with google</button>
+              <TfiGoogle className='text-2xl text-green-500' />
+              Log in with google</button>
 
           </div>
         </div>

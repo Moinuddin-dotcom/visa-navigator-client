@@ -43,7 +43,7 @@ const Register = () => {
       .then(async (result) => {
         const user = result.user
         toast.success('User registered successfully')
-        // console.log('User registered successfully', user)
+        console.log('User registered successfully', user)
         const newReg = { name, photo, email }
         const res = await fetch('https://server-side-a10.vercel.app/users', {
           method: 'POST',
@@ -53,7 +53,7 @@ const Register = () => {
           body: JSON.stringify(newReg)
         })
         const data = await res.json();
-        // console.log(data)
+        console.log(data)
 
 
 
@@ -149,8 +149,8 @@ const Register = () => {
             <button
               onClick={handleGoolge}
               className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white w-full">
-                <TfiGoogle className='text-2xl text-green-500' />
-                Log in with google</button>
+              <TfiGoogle className='text-2xl text-green-500' />
+              Log in with google</button>
 
           </div>
         </div>

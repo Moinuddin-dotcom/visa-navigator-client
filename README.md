@@ -26,3 +26,27 @@
 # Endpoints:
 **/visas:** Get all visas, add visa, update visa, delete visa.
 **/applications:** Add, view, and cancel visa applications.
+
+**⚡ Installation & Setup**
+
+**1️⃣ Clone the Repository**
+
+    git clone https://github.com/yourusername/hotel-booking.git
+    cd hotel-booking
+
+**2️⃣ Install Dependencies**
+
+    npm install
+
+**3️⃣ Run the Development Server**
+
+    npm run dev
+
+
+
+**📬 Contact**
+💡 Have feedback or suggestions? Let’s connect!
+
+    📧 Email: moinchy7@gmail.com
+    🔗 LinkedIn: https://www.linkedin.com/in/md-moinuddin-chowdhury-67098123b/?originalSubdomain=bd
+    🔗 GitHub: https://github.com/Moinuddin-dotcom

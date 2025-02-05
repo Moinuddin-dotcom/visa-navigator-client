@@ -28,7 +28,7 @@ const Welcome = () => {
                     <div className="card-body">
                         <div className='flex justify-center items-center'>
 
-                        <img src="https://visa-navigator.com/assets/images/secure-shield.svg" width="40" height="40" alt="Guarantees" title="Icon of guaranteed service" className="infographics-item__img" />
+                            <img src="https://visa-navigator.com/assets/images/secure-shield.svg" width="40" height="40" alt="Guarantees" title="Icon of guaranteed service" className="infographics-item__img" />
                         </div>
                         <h2 className="font-bold text-xl text-center">Guarantees</h2>
                         <div className="divider divider-success text-gray-500">Guarantees</div>
@@ -40,7 +40,7 @@ const Welcome = () => {
                     <div className="card-body">
                         <div className='flex justify-center items-center'>
 
-                        <img src="https://visa-navigator.com/assets/images/bezahlen.svg" width="40" height="40" alt="Guarantees" title="Icon of guaranteed service" className="infographics-item__img" />
+                            <img src="https://visa-navigator.com/assets/images/bezahlen.svg" width="40" height="40" alt="Guarantees" title="Icon of guaranteed service" className="infographics-item__img" />
                         </div>
                         <h2 className="font-bold text-xl text-center">Сonvenient application</h2>
                         <div className="divider divider-success text-gray-500">Сonvenient</div>
@@ -52,7 +52,7 @@ const Welcome = () => {
                     <div className="card-body">
                         <div className='flex justify-center items-center'>
 
-                        <img src="https://visa-navigator.com/assets/images/recommended.svg" width="40" height="40" alt="Guarantees" title="Icon of guaranteed service" className="infographics-item__img" />
+                            <img src="https://visa-navigator.com/assets/images/recommended.svg" width="40" height="40" alt="Guarantees" title="Icon of guaranteed service" className="infographics-item__img" />
                         </div>
                         <h2 className="font-bold text-xl text-center">High-quality service</h2>
                         <div className="divider divider-success text-gray-500">service</div>
